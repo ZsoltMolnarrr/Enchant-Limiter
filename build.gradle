@@ -71,3 +71,7 @@ subprojects {
         }
     }
 }
+
+ext.changelog_last_section = { ->
+    return new File("CHANGELOG.md").text.split('\n# ')[0]
+}
