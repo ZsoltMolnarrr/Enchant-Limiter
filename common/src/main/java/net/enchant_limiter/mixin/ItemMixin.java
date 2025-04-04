@@ -22,7 +22,7 @@ public class ItemMixin {
             // Mixin
             Item.Settings instance, Operation<ComponentMap> original
     ) {
-        var config = EnchantLimiterMod.config;
+        var config = EnchantLimiterMod.getConfig();
          var componentMap = original.call(instance);
 
         var isEnchantedBook = ((Object)this) instanceof EnchantedBookItem;
@@ -35,9 +35,6 @@ public class ItemMixin {
         }
         instance.component(ItemComponentTypes.ENCHANT_LIMITER, new LimitComponent(config.default_limit));
 
-
-//        var componentMap = original.call(instance);
-//        System.out.println("Added enchant limiter component to item: " + this + " " + componentMap);
         return original.call(instance);
     }
 }
