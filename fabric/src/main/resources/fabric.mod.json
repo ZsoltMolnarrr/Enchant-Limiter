@@ -3,16 +3,16 @@
   "id": "enchant_limiter",
   "version": "${version}",
   "name": "Enchant Limiter",
-  "description": "This is an example description! Tell everyone what your mod is about!",
+  "description": "Limit the number of enchantments on an item.",
   "authors": [
-    "Me!"
+    "Daedelus"
   ],
   "contact": {
     "homepage": "https://fabricmc.net/",
     "sources": "https://github.com/FabricMC/fabric-example-mod"
   },
-  "license": "CC0-1.0",
-  "icon": "assets/enchant_limiter/icon.png",
+  "license": "GPL-3.0",
+  "icon": "icon.png",
   "environment": "*",
   "entrypoints": {
     "main": [

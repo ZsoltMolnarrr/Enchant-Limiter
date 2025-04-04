@@ -1,17 +1,17 @@
 modLoader = "javafml"
 loaderVersion = "[4,)"
 #issueTrackerURL = ""
-license = "Insert License Here"
+license = "GPL-3.0"
 
 [[mods]]
 modId = "enchant_limiter"
 version = "${version}"
 displayName = "Enchant Limiter"
-authors = "Me!"
+authors = "Daedelus"
 description = '''
-This is an example description! Tell everyone what your mod is about!
+Limit the number of enchantments on an item.
 '''
-#logoFile = ""
+logoFile = "icon.png"
 
 [[dependencies.enchant_limiter]]
 modId = "neoforge"
