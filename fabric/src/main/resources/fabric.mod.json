@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 1,
+  "id": "enchant_limiter",
+  "version": "${version}",
+  "name": "Enchant Limiter",
+  "description": "This is an example description! Tell everyone what your mod is about!",
+  "authors": [
+    "Me!"
+  ],
+  "contact": {
+    "homepage": "https://fabricmc.net/",
+    "sources": "https://github.com/FabricMC/fabric-example-mod"
+  },
+  "license": "CC0-1.0",
+  "icon": "assets/enchant_limiter/icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "net.enchant_limiter.fabric.ExampleModFabric"
+    ],
+    "client": [
+      "net.enchant_limiter.fabric.client.ExampleModFabricClient"
+    ]
+  },
+  "mixins": [
+    "enchant_limiter.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=0.16.12",
+    "minecraft": "~1.21.1",
+    "java": ">=21",
+    "fabric-api": "*"
+  },
+  "suggests": {
+    "another-mod": "*"
+  }
+}

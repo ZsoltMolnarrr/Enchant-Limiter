@@ -1,0 +1,18 @@
+{
+  "required": true,
+  "package": "net.enchant_limiter.mixin",
+  "compatibilityLevel": "JAVA_21",
+  "minVersion": "0.8",
+  "client": [
+  ],
+  "mixins": [
+    "DataComponentTypesMixin",
+    "EnchantmentHelperMixin",
+    "EnchantmentMixin",
+    "ItemMixin",
+    "ItemStackMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}
