@@ -27,6 +27,7 @@ public class ItemStackMixin {
             if (limiter != null && existingEnchantments != null) {
                 var enchantmentCount = existingEnchantments.getEnchantments().size();
                 if (enchantmentCount > 0) {
+                    textConsumer.accept(Text.literal(""));
                     textConsumer.accept(Text.translatable("item.enchant_limiter.enchantment_limit", enchantmentCount, limiter.count()).formatted(Formatting.BLUE));
                 }
             }
