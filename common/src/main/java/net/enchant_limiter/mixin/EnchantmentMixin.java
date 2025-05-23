@@ -15,7 +15,11 @@ public class EnchantmentMixin {
         var limiter = stack.get(ItemComponentTypes.ENCHANT_LIMITER);
         var existingEnchantments = stack.getEnchantments();
         if (limiter != null && existingEnchantments != null) {
-            if (existingEnchantments.getEnchantments().size() >= limiter.count()) {
+            var enchantment = (Enchantment) (Object) this;
+            boolean existingEnchantment = existingEnchantments.getEnchantments().stream()
+                    .anyMatch(entry -> entry.value().equals(enchantment));
+            boolean atLimit = existingEnchantments.getEnchantments().size() >= limiter.count();
+            if (atLimit && !existingEnchantment) {
                 cir.setReturnValue(false);
                 cir.cancel();
             }
