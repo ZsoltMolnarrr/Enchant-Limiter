@@ -1,3 +1,7 @@
+# 1.0.5
+
+- Update library embedding for NeoForge
+
 # 1.0.4
 
 - Fix combining items on Anvil #10
