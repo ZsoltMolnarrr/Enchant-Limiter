@@ -1,3 +1,7 @@
+# 1.0.4
+
+- Fix combining items on Anvil #10
+
 # 1.0.3
 
 - Fix upgrading Enchantments on Anvil #6
