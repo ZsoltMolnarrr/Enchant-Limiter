@@ -1,3 +1,7 @@
+# 1.0.6
+
+- Fix crashing alongside EasyMagic
+
 # 1.0.5
 
 - Update library embedding for NeoForge

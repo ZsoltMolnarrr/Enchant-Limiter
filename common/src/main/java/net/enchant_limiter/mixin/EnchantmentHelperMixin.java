@@ -24,10 +24,12 @@ public class EnchantmentHelperMixin {
         var limiter = stack.get(ItemComponentTypes.ENCHANT_LIMITER);
         if (limiter != null) {
             var selectedEnchantments = cir.getReturnValue();
-            if (selectedEnchantments.size() > limiter.count()) {
+            if (!selectedEnchantments.isEmpty()
+                    && selectedEnchantments.size() > limiter.count()) {
                 var shuffled = new ArrayList<>(selectedEnchantments);
                 Collections.shuffle(shuffled);
-                var selected = shuffled.stream().limit(limiter.count()).toList();
+                var limit = Math.min(limiter.count(), shuffled.size());
+                var selected = new ArrayList<>(shuffled.subList(0, limit));
                 cir.setReturnValue(selected);
             }
         }
