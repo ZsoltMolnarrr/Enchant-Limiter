@@ -5,6 +5,8 @@ plugins {
     id "com.modrinth.minotaur" version "2.+"
 }
 
+def platform = project.name;
+
 architectury {
     platformSetupLoomIde()
     fabric()
@@ -28,7 +30,13 @@ configurations {
 }
 
 repositories {
-    maven { url 'https://jitpack.io' }
+    maven {
+        name = 'Modrinth'
+        url = 'https://api.modrinth.com/maven'
+        content {
+            includeGroup 'maven.modrinth'
+        }
+    }
 }
 
 dependencies {
@@ -40,7 +48,7 @@ dependencies {
     common(project(path: ':common', configuration: 'namedElements')) { transitive false }
     shadowBundle project(path: ':common', configuration: 'transformProductionFabric')
 
-    include(implementation("com.github.ZsoltMolnarrr:TinyConfig:${project.tiny_config_version}"))
+    include(modImplementation("maven.modrinth:tiny-config:${project.tiny_config_version}-${platform}"))
 }
 
 processResources {

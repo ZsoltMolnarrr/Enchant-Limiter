@@ -1,7 +1,7 @@
 package net.enchant_limiter;
 
 import net.enchant_limiter.config.Config;
-import net.tinyconfig.ConfigManager;
+import net.tiny_config.ConfigManager;
 
 public final class EnchantLimiterMod {
     public static final String ID = "enchant_limiter";
