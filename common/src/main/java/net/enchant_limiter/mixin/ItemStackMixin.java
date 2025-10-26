@@ -3,6 +3,7 @@ package net.enchant_limiter.mixin;
 import com.llamalad7.mixinextras.injector.wrapoperation.Operation;
 import com.llamalad7.mixinextras.injector.wrapoperation.WrapOperation;
 import net.enchant_limiter.api.ItemComponentTypes;
+import net.enchant_limiter.api.LimitHelper;
 import net.minecraft.component.ComponentType;
 import net.minecraft.component.DataComponentTypes;
 import net.minecraft.item.Item;
@@ -27,8 +28,9 @@ public class ItemStackMixin {
             if (limiter != null && existingEnchantments != null) {
                 var enchantmentCount = existingEnchantments.getEnchantments().size();
                 if (enchantmentCount > 0) {
+                    var limitCount = LimitHelper.getLimitCount(instance);
                     textConsumer.accept(Text.literal(""));
-                    textConsumer.accept(Text.translatable("item.enchant_limiter.enchantment_limit", enchantmentCount, limiter.count()).formatted(Formatting.BLUE));
+                    textConsumer.accept(Text.translatable("item.enchant_limiter.enchantment_limit", enchantmentCount, limitCount).formatted(Formatting.BLUE));
                 }
             }
         }

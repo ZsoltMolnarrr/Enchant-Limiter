@@ -1,6 +1,7 @@
 package net.enchant_limiter.mixin;
 
 import net.enchant_limiter.api.ItemComponentTypes;
+import net.enchant_limiter.api.LimitHelper;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.item.ItemStack;
 import org.spongepowered.asm.mixin.Mixin;
@@ -18,7 +19,8 @@ public class EnchantmentMixin {
             var enchantment = (Enchantment) (Object) this;
             boolean existingEnchantment = existingEnchantments.getEnchantments().stream()
                     .anyMatch(entry -> entry.value().equals(enchantment));
-            boolean atLimit = existingEnchantments.getEnchantments().size() >= limiter.count();
+            var limitCount = LimitHelper.getLimitCount(stack);
+            boolean atLimit = existingEnchantments.getEnchantments().size() >= limitCount;
             if (atLimit && !existingEnchantment) {
                 cir.setReturnValue(false);
                 cir.cancel();

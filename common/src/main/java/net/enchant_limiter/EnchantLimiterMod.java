@@ -9,7 +9,6 @@ public final class EnchantLimiterMod {
     private static ConfigManager<Config> config = new ConfigManager<>
             ("enchant_limiter", new Config())
             .builder()
-            // .setDirectory(ID)
             .sanitize(true)
             .build();
 

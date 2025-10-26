@@ -1,3 +1,7 @@
+# 1.0.8
+
+- Add support for item rarity based bonus limit count (configurable)
+
 # 1.0.7
 
 - Update translations

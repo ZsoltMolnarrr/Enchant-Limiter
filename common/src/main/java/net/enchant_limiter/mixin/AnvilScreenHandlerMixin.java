@@ -3,6 +3,7 @@ package net.enchant_limiter.mixin;
 import com.llamalad7.mixinextras.injector.wrapoperation.Operation;
 import com.llamalad7.mixinextras.injector.wrapoperation.WrapOperation;
 import net.enchant_limiter.api.ItemComponentTypes;
+import net.enchant_limiter.api.LimitHelper;
 import net.minecraft.component.DataComponentTypes;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.item.ItemStack;
@@ -32,9 +33,9 @@ public abstract class AnvilScreenHandlerMixin extends ForgingScreenHandler {
         var outputStack = output.getStack(0);
         var limiter = outputStack.get(ItemComponentTypes.ENCHANT_LIMITER);
         if (limiter != null) {
-            var limit = limiter.count();
+            var limitCount = LimitHelper.getLimitCount(outputStack);
             var enchantments = outputStack.get(DataComponentTypes.ENCHANTMENTS);
-            if (enchantments != null && enchantments.getEnchantments().size() > limit) {
+            if (enchantments != null && enchantments.getEnchantments().size() > limitCount) {
                 output.setStack(0, ItemStack.EMPTY);
                 levelCost.set(0);
             }

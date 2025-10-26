@@ -1,6 +1,7 @@
 package net.enchant_limiter.mixin;
 
 import net.enchant_limiter.api.ItemComponentTypes;
+import net.enchant_limiter.api.LimitHelper;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.enchantment.EnchantmentLevelEntry;
@@ -24,11 +25,12 @@ public class EnchantmentHelperMixin {
         var limiter = stack.get(ItemComponentTypes.ENCHANT_LIMITER);
         if (limiter != null) {
             var selectedEnchantments = cir.getReturnValue();
+            var limitCount = LimitHelper.getLimitCount(stack);
             if (!selectedEnchantments.isEmpty()
-                    && selectedEnchantments.size() > limiter.count()) {
+                    && selectedEnchantments.size() > limitCount) {
                 var shuffled = new ArrayList<>(selectedEnchantments);
                 Collections.shuffle(shuffled);
-                var limit = Math.min(limiter.count(), shuffled.size());
+                var limit = Math.min(limitCount, shuffled.size());
                 var selected = new ArrayList<>(shuffled.subList(0, limit));
                 cir.setReturnValue(selected);
             }
